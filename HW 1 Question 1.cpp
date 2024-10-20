@@ -102,7 +102,7 @@ double RearWeightSum = 0;
 
         if (CGLocation < CGForwardLim)
         {   
-            cout << endl << "The current location of the center of gravity (CG) of the plane (" << fixed << setprecision(2) << CGLocation << " inches) is ahead of the safe forward limit for the CG which is" 
+            cout << endl << "The current location of the center of gravity (CG) of the plane (" << fixed << setprecision(2) << CGLocation << " inches) is ahead of the safe forward limit for the CG which is " 
                  << fixed << setprecision(2)  << CGForwardLim << " inches." << endl;
                 
             double NetMomentAdjustFCG = (CGForwardLim - CGLocation) * WeightTO;
