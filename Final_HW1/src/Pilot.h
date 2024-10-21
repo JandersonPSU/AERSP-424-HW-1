@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//Pilot Class Header
 class Pilot {
 private:
     string name;

@@ -7,7 +7,7 @@
 #include "FlightInfo.h"
 
 using namespace std;
-
+//Plane Class Header
 class Plane {
 private:
     double pos;               // Position of the plane

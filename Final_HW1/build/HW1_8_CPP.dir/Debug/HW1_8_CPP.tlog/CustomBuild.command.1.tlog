@@ -1,6 +1,6 @@
-^C:\USERS\PBACH\ONEDRIVE\DESKTOP\SCHOOLWORK\FALL24\AERSP424\HWS\HW1\CMAKELISTS.TXT
+^C:\USERS\PBACH\ONEDRIVE\DESKTOP\SCHOOLWORK\FALL24\GIT_JACK_ANDERSON\AERSP-424-HW-1\FINAL_HW1\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1 -BC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1/build --check-stamp-file C:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/Git_Jack_Anderson/AERSP-424-HW-1/Final_HW1 -BC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/Git_Jack_Anderson/AERSP-424-HW-1/Final_HW1/build --check-stamp-file C:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/Git_Jack_Anderson/AERSP-424-HW-1/Final_HW1/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

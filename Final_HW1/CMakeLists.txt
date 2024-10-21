@@ -12,7 +12,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Add HW1_8_CPP executable with relevant source files
 add_executable(HW1_8_CPP 
-    src/HW1_8_CPP.cpp 
+    src/HW1_Q_8_CPP.cpp 
     src/Plane.cpp 
     src/Pilot.cpp 
     src/FlightInfo.cpp

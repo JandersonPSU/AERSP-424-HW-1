@@ -3,8 +3,9 @@
 
 #include <string>
 using namespace std;
-
+//Flight Info struct header
 struct FlightInfo {
+   //variable decalarations 
     string departure;
     string destination;
     int distance;
