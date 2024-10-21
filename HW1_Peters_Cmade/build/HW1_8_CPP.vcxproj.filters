@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\pbach\OneDrive\Desktop\SchoolWork\Fall24\AERSP424\HWs\HW1\src\HW1_8_CPP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pbach\OneDrive\Desktop\SchoolWork\Fall24\AERSP424\HWs\HW1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5EEF73C5-1375-3A9A-803E-A322FAE24BBA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

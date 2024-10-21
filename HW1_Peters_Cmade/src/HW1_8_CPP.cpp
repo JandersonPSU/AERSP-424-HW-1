@@ -4,7 +4,6 @@
 #include <string>
 #include <memory>
 
-
 using namespace std;
 
 // Creating a struct for the flight info

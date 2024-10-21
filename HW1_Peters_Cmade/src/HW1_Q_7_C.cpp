@@ -2,8 +2,6 @@
 #include <cmath>
 #include <vector>
 #include <string>
-#include <memory>
-
 
 using namespace std;
 
@@ -107,7 +105,7 @@ public:
 
 // Main function (QUESTION 05)
 int main() {
-    cout<<"######################## QUESTION 8 ########################"<<endl;
+    cout<<"######################## QUESTION 7 ########################"<<endl;
     double flight_speed = 0;
     while (flight_speed < 400 || flight_speed > 500) {
         cout << "Pick a flight speed between 400 and 500 mph: ";
@@ -131,17 +129,17 @@ int main() {
         }
     }
 
-     // Create the plane using std::unique_ptr
-    auto plane = make_shared<Plane>(input_from, input_to);
+    // Create the plane
+    Plane* plane = new Plane(input_from, input_to);
     plane->setVel(flight_speed); // Set the plane's velocity
 
-    // Create two pilot objects using std::unique_ptr
-    auto pilot1 = make_shared<Pilot>("Alpha", plane.get()); // Pilot 1 in control initially
-    auto pilot2 = make_shared<Pilot>("Unknown", nullptr);
+    // Create two pilot objects
+    Pilot* pilot1 = new Pilot("Alpha", plane); // This will be the starting pilot
+    Pilot* pilot2 = new Pilot("Unknown", nullptr); 
 
     // Start with pilot1 who is in control
-    shared_ptr<Pilot> currentPilot = pilot1;
-    shared_ptr<Pilot> standbyPilot = pilot2;
+    Pilot* currentPilot = pilot1;
+    Pilot* standbyPilot = pilot2;
 
     // Get user input for timestep and iterations
     double timestep = 0.0;
@@ -174,7 +172,7 @@ int main() {
             swap(currentPilot, standbyPilot);
 
             // Assign the plane to the new pilot
-            currentPilot->myPlane = plane.get();
+            currentPilot->myPlane = plane;
             standbyPilot->myPlane = nullptr;
 
             // Print info about the pilots/plane 
@@ -183,7 +181,10 @@ int main() {
         }
     }
 
-
+    // Clean up memory
+    delete plane;    // Deallocate memory for the plane
+    delete pilot1;   // Deallocate memory for pilot1
+    delete pilot2;   // Deallocate memory for pilot2
 
     return 0;
 }

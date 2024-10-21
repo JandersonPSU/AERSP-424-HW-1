@@ -1,0 +1,10 @@
+^C:\USERS\PBACH\ONEDRIVE\DESKTOP\SCHOOLWORK\FALL24\AERSP424\HWS\HW1\BUILD\CMAKEFILES\C603E7B8B96796A7680CE5BBB510354A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1 -BC:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/pbach/OneDrive/Desktop/SchoolWork/Fall24/AERSP424/HWs/HW1/build/FlightProject.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
