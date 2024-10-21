@@ -130,12 +130,16 @@ int main() {
     }
 
     // Create the plane
-    Plane plane(input_from, input_to);
-    plane.setVel(flight_speed); // Set the planes velocity
+    Plane* plane = new Plane(input_from, input_to);
+    plane->setVel(flight_speed); // Set the plane's velocity
 
     // Create two pilot objects
-    Pilot pilot1("Alpha", &plane); // This will be the starting pilot
-    Pilot pilot2("Unknown", nullptr); 
+    Pilot* pilot1 = new Pilot("Alpha", plane); // This will be the starting pilot
+    Pilot* pilot2 = new Pilot("Unknown", nullptr); 
+
+    // Start with pilot1 who is in control
+    Pilot* currentPilot = pilot1;
+    Pilot* standbyPilot = pilot2;
 
     // Get user input for timestep and iterations
     double timestep = 0.0;
@@ -150,10 +154,6 @@ int main() {
         cin >> iterations;
     }
 
-    // Start with pilot1 who is is in control
-    Pilot* currentPilot = &pilot1;
-    Pilot* standbyPilot = &pilot2;
-
     // Iterating 
     for (int current_iteration = 0; current_iteration < iterations; current_iteration++) {
         if (current_iteration==0){
@@ -162,17 +162,17 @@ int main() {
             cout << "Pilot " << standbyPilot->getName() << " with certificate number " << standbyPilot << " is in control of a plane: " << standbyPilot->myPlane << endl<<endl;
         }
         //cout << "Time: " << current_iteration * timestep << " seconds, Position: " << plane.getPos() << " miles." << endl;
-        plane.operate(timestep);
+        plane->operate(timestep);
 
         // Check if the plane is at SCE as question requests
-        if (plane.getAtSCE()) {
+        if (plane->getAtSCE()) {
             cout << "The plane " << &plane << " is at SCE." << endl;
 
             // Swap pilots
             swap(currentPilot, standbyPilot);
 
             // Assign the plane to the new pilot
-            currentPilot->myPlane = &plane;
+            currentPilot->myPlane = plane;
             standbyPilot->myPlane = nullptr;
 
             // Print info about the pilots/plane 
@@ -180,6 +180,11 @@ int main() {
             cout << "Pilot " << standbyPilot->getName() << " with certificate number " << standbyPilot << " is in control of a plane: " << standbyPilot->myPlane << endl<<endl;
         }
     }
+
+    // Clean up memory
+    delete plane;    // Deallocate memory for the plane
+    delete pilot1;   // Deallocate memory for pilot1
+    delete pilot2;   // Deallocate memory for pilot2
 
     return 0;
 }
