@@ -45,7 +45,7 @@ public:
                 break;
             }
         }
-        cout << "Plane Created at: " << this << endl; // Print the memory address of the plane
+        cout << "Plane Created with a tail number:  " << this << endl; // Print the memory address of the plane
     }
 
     // Destructor 
@@ -60,7 +60,7 @@ public:
             at_SCE = false;
         }
         else {
-            cout << "Arrived at: " << destination << " from: " << origin << ". On to the next leg!" << endl;
+            cout << "Navgation from " << origin << " to " << destination << " has been completed. On to the next leg!" << endl;
             if (destination == "SCE") {
                 at_SCE = true;
             }
@@ -105,6 +105,7 @@ public:
 
 // Main function (QUESTION 05)
 int main() {
+    cout<<"######################## QUESTION 7 ########################"<<endl;
     double flight_speed = 0;
     while (flight_speed < 400 || flight_speed > 500) {
         cout << "Pick a flight speed between 400 and 500 mph: ";
@@ -155,12 +156,17 @@ int main() {
 
     // Iterating 
     for (int current_iteration = 0; current_iteration < iterations; current_iteration++) {
-        cout << "Time: " << current_iteration * timestep << " seconds, Position: " << plane.getPos() << " miles." << endl;
+        if (current_iteration==0){
+            // Print info about the pilots/plane 
+            cout <<endl<< "Pilot " << currentPilot->getName() << " with certificate number " << currentPilot << " is in control of a plane: " << currentPilot->myPlane << endl;
+            cout << "Pilot " << standbyPilot->getName() << " with certificate number " << standbyPilot << " is in control of a plane: " << standbyPilot->myPlane << endl<<endl;
+        }
+        //cout << "Time: " << current_iteration * timestep << " seconds, Position: " << plane.getPos() << " miles." << endl;
         plane.operate(timestep);
 
         // Check if the plane is at SCE as question requests
         if (plane.getAtSCE()) {
-            cout << "The plane at address " << &plane << " is at SCE." << endl;
+            cout << "The plane " << &plane << " is at SCE." << endl;
 
             // Swap pilots
             swap(currentPilot, standbyPilot);
@@ -170,8 +176,8 @@ int main() {
             standbyPilot->myPlane = nullptr;
 
             // Print info about the pilots/plane 
-            cout << "Pilot " << currentPilot->getName() << " with certificate number " << currentPilot << " is in control of a plane: " << currentPilot->myPlane << endl;
-            cout << "Pilot " << standbyPilot->getName() << " with certificate number " << standbyPilot << " is in control of a plane: " << standbyPilot->myPlane << endl;
+            cout <<endl<< "Pilot " << currentPilot->getName() << " with certificate number " << currentPilot << " is in control of a plane: " << currentPilot->myPlane << endl;
+            cout << "Pilot " << standbyPilot->getName() << " with certificate number " << standbyPilot << " is in control of a plane: " << standbyPilot->myPlane << endl<<endl;
         }
     }
 
